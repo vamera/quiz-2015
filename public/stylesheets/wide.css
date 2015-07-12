@@ -16,6 +16,13 @@ section {
   height: 200px;
 }
 
+#foto {
+	width: 33%;
+	padding: 0 5%;
+}
+
+#info p:first-child { padding-top: 35px; }
+
 footer {
   clear: both;
   display: block;

@@ -3,6 +3,25 @@ body {
   font-size: large;
 }
 
+section > div { 
+  height: auto;
+}
+
+#foto {
+	float:none;
+  padding:0;  height:auto;
+}
+
+#foto img {
+  height:auto;
+}
+
+#info {
+  line-height: 1.5em;
+}
+
+#info p:first-child { padding-top: 0; }
+
 #page-wrap:after { content: "Smartphone Layout"; }
 h2 span, section h3 { display: none; }
 footer, input { font-size: large; }

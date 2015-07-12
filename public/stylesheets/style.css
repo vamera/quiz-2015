@@ -17,16 +17,33 @@ body { font: 16px Georgia, serif; }
   color: black;
 }
 
-section > div { padding: 20px; }
+section > div { 
+  padding: 20px; 
+  height: 200px;
+}
 
 header, nav, section, footer {
   background: #eee;
   text-align: center;
 }
 
+#foto {
+	float:left;
+}
+
+#foto img {
+  height:100%;
+}
+
+#info {
+  line-height: 3em;
+}
+
+#info p:first-child { padding-top: 50px; }
+
 footer > a {
 	padding: 0 1%;
-  border-left: 1px solid black;
+  	border-left: 1px solid black;
 }
 
 footer a:first-child {
