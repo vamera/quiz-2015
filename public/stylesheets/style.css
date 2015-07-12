@@ -24,4 +24,13 @@ header, nav, section, footer {
   text-align: center;
 }
 
+footer > a {
+	padding: 0 1%;
+  border-left: 1px solid black;
+}
+
+footer a:first-child {
+    border-left: none;
+}
+
 nav span { margin: 0 10px 0 0; }
