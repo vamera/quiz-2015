@@ -51,3 +51,8 @@ footer a:first-child {
 }
 
 nav span { margin: 0 10px 0 0; }
+
+table {
+  width: 400px;
+  margin: auto
+}
