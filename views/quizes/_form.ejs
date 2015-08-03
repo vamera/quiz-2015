@@ -1,12 +1,28 @@
-<p>
-	<label for="preg" class="rem">Pregunta: </label>
-	<input type="text" id="preg" name="quiz[pregunta]" value="<%= quiz.pregunta %>">
-</p>
-<p>
-	<label for="resp" class="rem">Respuesta: </label>
-	<input type="text" id="resp" name="quiz[respuesta]" value="<%= quiz.respuesta %>">
-</p>
-<p>
+<table>
+<tr>
+	<td><label for="preg" class="rem">Pregunta: </label></td>
+	<td><input type="text" id="preg" name="quiz[pregunta]" value="<%= quiz.pregunta %>"></td>
+</tr>
+<tr>
+	<td><label for="resp" class="rem">Respuesta: </label></td>
+	<td><input type="text" id="resp" name="quiz[respuesta]" value="<%= quiz.respuesta %>"></td>
+</tr>
+<tr>
+	<td><label for="tema" class="rem">Tema: </label></td>
+	<td>
+	<% var temas = ["Otro","Humanidades","Ocio","Ciencia", "Tecnología"]; %>
+	
+	<select id="tema" name="quiz[tema]">
+		<option value="<%= quiz.tema %>" selected><%= quiz.tema %></option>
+		<% for (var i in temas) {  if ( temas[i] != quiz.tema ) { %>
+			<option value=<%=temas[i]%> ><%=temas[i]%></option>
+		<% }} %>
+	</select>
+	</td>
+</tr>
+</table>
+
+<div>
 	<a href="/quizes"><button type="button">Cancelar</button></a>
 	<input type="submit" value="Guardar">
-</p>
+</div>
