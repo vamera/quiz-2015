@@ -16,11 +16,7 @@ exports.load = function(req, res, next, quizId) {
 exports.index = function(req, res){
 	busqueda = (req.query.search||"");
 	busqueda = busqueda.replace(" ", "%");
-<<<<<<< HEAD
 	models.Quiz.findAll({where:['lower(pregunta) like lower(?)','%'+busqueda+'%'],order:'pregunta ASC'}).then(function(quizes) {
-=======
-	models.Quiz.findAll({where:['pregunta like ?','%'+busqueda+'%'],order:'pregunta ASC'}).then(function(quizes) {
->>>>>>> cc812d385e86a4fc6fba40059acbcff6f119ef94
 			res.render('quizes/index.ejs', { quizes: quizes, errors: []});
 		}
 	).catch(function(error) { next(error);})
