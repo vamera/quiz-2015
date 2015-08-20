@@ -33,6 +33,37 @@ app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')));
 
 
+// Control de expiracion de sesion (P2P m9)
+app.use(function(req, res, next){
+	if(req.session.user){ // Solo se ejecuta si hay una sesion
+		//console.log("==>HAY USUARIO");
+		if(!req.session.tiempo){
+		//	console.log("--->NO HAY MARCA DE TIEMPO");
+			req.session.tiempo = (new Date()).getTime(); // Inicializacón de la marca de tiempo si no existe
+		}
+		else 	// Si existe comprobar la antigüedad de la marca de tiempo
+		{
+		//	console.log("OOO>HAY MARCA DE TIEMPO");
+			var t_actual = (new Date()).getTime();
+			var t_expiracion = 120000; // Tiempo expiracion en milisegundos
+			
+			if(t_actual-req.session.tiempo > t_expiracion) // Eliminar el usuarion en caso de que el tiempo haya expirado
+			{
+				delete req.session.user;
+				delete req.session.tiempo;
+		//		console.log("XXX>MARCA DE TIEMPO EXPIRO");
+			}
+			else //  Renovar la marca de tiempo si no ha expirado
+			{
+				req.session.tiempo=(new Date()).getTime();
+		//		console.log("++++>RENOVACION MARCA DE TIEMPO");
+			}
+		}
+	}
+	next()
+});
+
+
 // Helpers dinamicos:
 app.use(function(req, res, next){
 	
